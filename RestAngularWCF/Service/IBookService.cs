@@ -17,11 +17,25 @@ namespace RestAngularWCF.Service
         void AddBook(Book book);
 
         [OperationContract]
+        [WebInvoke(Method = "OPTIONS",
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           UriTemplate = "/AddBook")]
+        void AddBookOptions(Book book);
+
+        [OperationContract]
         [WebInvoke(Method = "DELETE",
            RequestFormat = WebMessageFormat.Json,
            ResponseFormat = WebMessageFormat.Json,
            UriTemplate = "DeleteBook/{BookId}")]
         void DeleteBook(string bookId);
+
+        [OperationContract]
+        [WebInvoke(Method = "OPTIONS",
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           UriTemplate = "DeleteBook/{BookId}")]
+        void DeleteBookOptions(string bookId);
 
         [OperationContract]
         [WebInvoke(Method = "GET",

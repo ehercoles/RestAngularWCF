@@ -1,4 +1,6 @@
-﻿using System.Runtime.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace RestAngularWCF.Domain.Entity
 {
@@ -6,8 +8,11 @@ namespace RestAngularWCF.Domain.Entity
     public class Book
     {
         [DataMember]
-        int BookId { get; set; }
+        [Key]
+        public int BookId { get; set; }
+
         [DataMember]
-        string Name { get; set; }
+        [Required, StringLength(80)]
+        public string Name { get; set; }
     }
 }

@@ -18,11 +18,21 @@ namespace RestAngularWCF.Service
             db.SaveChanges();
         }
 
+        public void AddBookOptions(Book book)
+        {
+            
+        }
+
         public void DeleteBook(string bookId)
         {
             Book book = db.Books.Find(bookId);
             db.Books.Remove(book);
             db.SaveChanges();
+        }
+
+        public void DeleteBookOptions(string bookId)
+        {
+            
         }
 
         public List<Book> GetBook()
